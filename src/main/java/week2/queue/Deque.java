@@ -142,7 +142,64 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
+        Deque<Integer> deque = new Deque<>();
 
+        // Test isEmpty and size methods
+        System.out.println("Is deque empty? " + deque.isEmpty()); // true
+        System.out.println("Deque size: " + deque.size()); // 0
+
+        // Test addFirst and addLast methods
+        deque.addFirst(1);
+        deque.addLast(2);
+        deque.addFirst(0);
+        deque.addLast(3);
+
+        System.out.println("Is deque empty? " + deque.isEmpty()); // false
+        System.out.println("Deque size: " + deque.size()); // 4
+
+        // Test removeFirst and removeLast methods
+        System.out.println("Remove first: " + deque.removeFirst()); // 0
+        System.out.println("Remove last: " + deque.removeLast()); // 3
+
+        System.out.println("Deque size: " + deque.size()); // 2
+
+        // Test iterator
+        deque.addFirst(-1);
+        deque.addLast(4);
+
+        System.out.print("Deque contents: ");
+        for (int item : deque) {
+            System.out.print(item + " ");
+        }
+        // Output should be: -1 1 2 4
+
+        System.out.println("\nIs deque empty? " + deque.isEmpty()); // false
+        System.out.println("Deque size: " + deque.size()); // 0 (after iteration and removal)
+
+        // Test exception cases
+        try {
+            deque.addFirst(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught exception: " + e.getMessage()); // Null item
+        }
+
+        try {
+            deque.addLast(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught exception: " + e.getMessage()); // Null item
+        }
+
+        try {
+            deque.removeFirst();
+        } catch (NoSuchElementException e) {
+            System.out.println("Caught exception: " + e.getMessage()); // Empty queue
+        }
+
+        try {
+            deque.removeLast();
+        } catch (NoSuchElementException e) {
+            System.out.println("Caught exception: " + e.getMessage()); // Empty queue
+        }
     }
 
 }

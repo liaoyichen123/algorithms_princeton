@@ -133,7 +133,47 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
+        RandomizedQueue<Integer> rq = new RandomizedQueue<>();
+        System.out.println("Is empty? " + rq.isEmpty());
+        System.out.println("Size: " + rq.size());
 
+        rq.enqueue(1);
+        rq.enqueue(2);
+        rq.enqueue(3);
+        rq.enqueue(4);
+        rq.enqueue(5);
+
+        System.out.println("Size after enqueuing 5 items: " + rq.size());
+
+        System.out.println("Sample item: " + rq.sample());
+        System.out.println("Dequeue item: " + rq.dequeue());
+        System.out.println("Size after dequeue: " + rq.size());
+
+        System.out.println("Items in random order:");
+        for (int item : rq) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+
+        try {
+            rq.enqueue(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException when adding null item");
+        }
+
+        try {
+            RandomizedQueue<String> emptyRq = new RandomizedQueue<>();
+            emptyRq.dequeue();
+        } catch (NoSuchElementException e) {
+            System.out.println("Caught NoSuchElementException when dequeuing from empty queue");
+        }
+
+        try {
+            RandomizedQueue<String> emptyRq = new RandomizedQueue<>();
+            emptyRq.sample();
+        } catch (NoSuchElementException e) {
+            System.out.println("Caught NoSuchElementException when sampling from empty queue");
+        }
     }
 
 }

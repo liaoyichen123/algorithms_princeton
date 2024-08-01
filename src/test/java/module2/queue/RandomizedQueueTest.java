@@ -1,4 +1,4 @@
-package week2.queue;
+package module2.queue;
 
 import org.junit.Before;
 import org.junit.Test;

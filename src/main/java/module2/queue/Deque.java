@@ -1,4 +1,4 @@
-package week2.queue;
+package module2.queue;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

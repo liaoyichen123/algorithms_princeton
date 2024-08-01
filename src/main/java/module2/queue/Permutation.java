@@ -1,4 +1,4 @@
-package week2.queue;
+package module2.queue;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;

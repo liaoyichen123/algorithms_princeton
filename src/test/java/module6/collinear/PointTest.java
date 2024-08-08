@@ -52,8 +52,6 @@ public class PointTest {
     }
 
 
-
-
     @Test
     public void compareToDifferenceInYCase() {
         // one point is smaller because of difference in y coordinate
@@ -62,9 +60,6 @@ public class PointTest {
         assertTrue(pointA.compareTo(pointB) < 0);
         assertFalse(pointA.compareTo(pointB) > 0);
         assertNotEquals(0, pointA.compareTo(pointB));
-
-
-
     }
 
     @Test
@@ -83,6 +78,13 @@ public class PointTest {
         Point pointA = new Point(1,1);
         Point pointB = new Point(1,1);
         assertEquals(0, pointA.compareTo(pointB));
+    }
+
+    @Test
+    public void compareCaseInput8() {
+        Point pointA = new Point(10000, 0);
+        Point pointB = new Point(0, 10000);
+        assertTrue(pointA.compareTo(pointB) < 0);
     }
 
     @Test
